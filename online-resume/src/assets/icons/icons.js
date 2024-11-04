@@ -32,6 +32,7 @@ import sadFaceIcon from './sad-face.svg'
 import figmaIcon from './figma-icon.svg'
 import linkedInIcon from './linkedin-icon-2.svg'
 import githubIcon from './github-icon-1.svg'
+import guyIcon from './guy.svg'
 
 export default {
     vueIcon,
@@ -67,5 +68,6 @@ export default {
     sadFaceIcon,
     figmaIcon,
     linkedInIcon,
-    githubIcon
+    githubIcon,
+    guyIcon
 }
