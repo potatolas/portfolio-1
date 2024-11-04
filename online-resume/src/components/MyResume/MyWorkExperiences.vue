@@ -2,19 +2,19 @@
     <div v-for="work in workExperiences"
         class="m-4 p-12 flex flex-col border-2 border-black/20 hover:border-black/40 transition-all border-dashed grow relative my-6">
         <div class="flex">
-            <h3 class="text-4xl font-serif bg-white/60 p-2 rounded">{{ work.title }}</h3>
+            <h3 class="text-md md:text-xl lg:text-2xl font-serif bg-white/60 p-2 rounded">{{ work.title }}</h3>
         </div>
-        <div class="m-2 flex gap-4">
+        <div class="m-2 flex gap-4 text-sm md:text-md lg:text-lg">
             <span>{{ work.company }}</span>
             <span class="opacity-40">|</span>
             <span>{{ work.date }}</span>
         </div>
-        <div class="m-2">
+        <div class="m-2 text-sm md:text-md lg:text-lg">
             <ol class="job-description">
                 <li v-for="jd in work.jobDescription">{{ jd }}</li>
             </ol>
         </div>
-        <div class="absolute flex justify-end top-6 right-6 gap-6 items-center">
+        <div class="absolute flex justify-end top-6 right-6 gap-6 items-center invisible md:visible">
             <img v-for="skill in work.skills" :src="skill.img" style="max-height: 30px; max-width: 30px"
                 :alt="skill.title" :title="skill.title" class="grayscale-85 hover:grayscale-0 transition-all" />
         </div>

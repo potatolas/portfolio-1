@@ -1,5 +1,5 @@
 <template>
-    <div class="flip-card" :style="{width, height}">
+    <div class="flip-card h-[120px] w-[120px] md:h-[180px] md:w-[180px]">
         <div class="flip-card-inner">
             <div
                 class="absolute flip-card-front" :class="extraStyles">
@@ -22,14 +22,6 @@ export default {
             default: [],
             required: false,
         },
-        width: {
-            type: String,
-            default: '200px',
-        },
-        height: {
-            type: String,
-            default: '200px',
-        }
     }
 }
 </script>

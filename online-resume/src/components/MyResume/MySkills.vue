@@ -9,15 +9,15 @@
         <TransitionGroup name="list">
             <TheHoverFlipCard v-for="skill in shownSkills" :extraStyles="flipCardStyles" :key="skill.name">
                 <template #front-side>
-                    <img style="max-height: 100px; max-width: 100px" class="grayscale-85" :src="skill.icon">
+                    <img class="grayscale-85 max-h-[80px] max-w-[80px] md:max-h-[120px] md:max-w-[120px]" :src="skill.icon">
                 </template>
                 <template #back-side>
-                    <div class="flex flex-col items-center">
+                    <div class="flex flex-col items-center text-md">
                         <div>
-                            <span class="text-xl">{{ skill.name }}</span>
+                            <span class="text-[80%] md:text-[100%]">{{ skill.name }}</span>
                         </div>
-                        <div class="flex gap-2 text-xs mt-1 flex-wrap p-2 justify-center">
-                            <span class="tags" v-for="tag in skill?.tags" :class="tag.classes">
+                        <div class="flex gap-2 mt-1 flex-wrap justify-center text-[0px] md:text-sm p-2">
+                            <span class="tags" v-for="tag in skill?.tags" :class="[...tag.classes, 'border', 'border-white']">
                                 {{ tag.key }}
                             </span>
                         </div>
@@ -26,11 +26,11 @@
             </TheHoverFlipCard>
             <TheHoverFlipCard :key="'none'" :extraStyles="flipCardStyles" v-if="shownSkills.length === 0">
                 <template #front-side>
-                    <img style="max-height: 100px; max-width: 100px" class="grayscale-85" :src="ICONS.sadFaceIcon">
+                    <img class="grayscale-85 max-h-[80px] max-w-[80px] md:max-h-[120px] md:max-w-[120px]"  :src="ICONS.sadFaceIcon">
                 </template>
                 <template #back-side>
                     <div class="flex flex-col items-center px-4">
-                        <span>You have turned off all the filters.</span>
+                        <span class="text-[80%] md:text-[100%]">You have turned off all the filters.</span>
                     </div>
                 </template>
             </TheHoverFlipCard>
@@ -71,7 +71,7 @@ export default {
         return {
             TAGS,
             ICONS,
-            flipCardStyles: ["transition-all", "h-[200px]", "w-[200px]", "border"
+            flipCardStyles: ["transition-all", "h-[100px]", "w-[100px]", "border"
                 , "border-2", "border-dashed", "border-black/40", "rounded-full", "flex", "items-center"
                 , "justify-center"],
             skills: [

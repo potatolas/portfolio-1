@@ -1,6 +1,7 @@
 <template>
-    <div class="fixed flex flex-col gap-4 top-20 left-0 z-10 fade-in-animation">
-        <button class="bookmark bookmark-animation text-sm w-[100px] text-start" @click="scrollToSection('landing-panel')">
+    <div class="fixed flex flex-col gap-4 top-20 left-0 fade-in-animation bg-red-100 w-0 h-0 z-10">
+        <button class="bookmark bookmark-animation text-sm w-[100px] text-start"
+            @click="scrollToSection('landing-panel')">
             <span>Introduction</span>
         </button>
         <button v-for="section in fadeInSections" class="bookmark bookmark-animation text-sm w-[100px] text-start"
@@ -9,20 +10,20 @@
         </button>
     </div>
     <div class="flex flex-col gap-4 fade-in-animation">
-        <div id="landing-panel" class="landing-panel flex relative">
+        <div id="landing-panel" class="landing-panel flex relative text-2xl leading-relaxed">
             <div
                 class="m-4 p-12 flex flex-col border-2 border-black/20 hover:border-black/40 transition-all border-dashed grow justify-center">
                 <!-- <div class="font-serif font-bold text-xl mb-4">About Me</div> -->
                 <div>
-                    <span class="font-serif font-extralight lg:text-[500%] text-[250%] leading-1 lg:mr-8 mr-3">Hello! I
-                        am a</span>
-                    <span class="font-serif font-extralight lg:text-[500%] text-[250%] leading-1">{{ displayedText
-                        }}</span>
-                    <span
-                        class="font-serif font-extralight inline-block w-[2px] bg-black lg:text-[500%] text-[250%] leading-none blink-type">
-                        <span class="text-transparent">|</span>
-                    </span>
-                    <div class="font-sans text-xl leading-10 mt-4">
+                    <p class="text-[60%] sm:text-[100%] md:text-[250%] lg:text-[300%]">
+                        <span class="font-serif leading-1">Hello! I
+                            am a&#10240</span>
+                        <span class="font-serif leading-1">{{ displayedText }}</span>
+                        <span class="font-serif inline-block w-[2px] bg-black leading-none blink-type">
+                            <span class="text-transparent">|</span>
+                        </span>
+                    </p>
+                    <div class="text-[60%] md:text-[80%] lg:text-[90%] font-sans mt-4">
                         <p>
                             My name is <span
                                 class="font-serif font-semibold underline underline-offset-2">Nicholas</span>
@@ -33,14 +34,15 @@
                             cloud
                             platforms. I am passionate about frontend and web development and motivated to grow in these
                             areas. I look forward to develop my skills in a professional environment.
-                            Scroll down or click the buttons at the top left to learn more about my skills and work experiences!
+                            Scroll down or click the buttons at the top left to learn more about my skills and work
+                            experiences!
                         </p>
                     </div>
                 </div>
             </div>
         </div>
         <div class="p-4" v-for="section in fadeInSections" :key="section.id" :id="section.id">
-            <div class="font-serif font-bold text-xl mb-4">{{ section.title }}</div>
+            <div class="font-serif font-bold text-xl mb-4 px-4">{{ section.title }}</div>
             <div :class="section.classes">
                 <component :is="section.component"></component>
             </div>
@@ -131,11 +133,16 @@ export default {
         },
         scrollToSection(id) {
             document.getElementById(id).scrollIntoView({ behavior: "smooth", block: "start" });
+        },
+        isMobile() {
+            return window.matchMedia("(max-width: 767px)").matches;
         }
     },
     mounted() {
-        this.scrollCallback()
-        document.addEventListener("scroll", this.scrollCallback);
+        if (!this.isMobile()) {
+            this.scrollCallback()
+            document.addEventListener("scroll", this.scrollCallback);
+        }
 
         // typewriter-stuff
         this.carousel(this.carouselText, document.getElementById('typewriter-stuff'))

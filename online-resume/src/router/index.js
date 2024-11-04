@@ -1,4 +1,4 @@
-import { createWebHistory, createRouter } from 'vue-router'
+import { createMemoryHistory , createRouter } from 'vue-router'
 
 import MyResume from '../components/MyResume/MyResume.vue';
 import MyWork from '../components/MyWork/MyWork.vue';
@@ -10,7 +10,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createMemoryHistory(),
   routes,
 })
 
