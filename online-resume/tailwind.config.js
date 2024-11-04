@@ -8,7 +8,11 @@ export default {
       sans: ['Karla', 'sans-serif'],
       serif: ['Inconsolata', 'serif'],
     },
-    extend: {},
+    extend: {
+      grayscale: {
+        85: '85%',
+      }
+    },
   },
   plugins: [],
 }
