@@ -1,5 +1,21 @@
-# Vue 3 + Vite
+# Frameworks
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+The frontend will be created using the Vue 3 framework + Vue Router + Vite.
+The webpage will be served using netlify.
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+Other notable packages used include Tailwind CSS.
+
+# Folders
+
+## /src
+`/assets` contains icons and vectors used in the webpage.
+`/components` contains the Vue components used in the webpage.
+`/router` contains the main `index.js` file used for SPA via Vue Router.
+
+## /dist
+Contains built files.
+
+# Commands
+`npm run dev` - to start web app locally.
+`npm run build` - to bundle and build app into static files.
+
